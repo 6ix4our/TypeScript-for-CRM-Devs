@@ -1,0 +1,46 @@
+﻿extends layout
+
+block content
+  .row
+    .col-md-8
+      .jumbotron
+          h1 Samwise
+          p.lead This is a rapidly-developed Node.js Express application, designed to function as a customer portal for CRM
+          p
+          a.btn.btn-primary.btn-large(href='http://expressjs.com/') Learn more about Express &raquo;
+    .col-md-4
+      .panel.panel-default
+        .panel-body
+          - if (!authenticated)
+            h3.text-center Login
+            .well
+              - if (invalidLogin)
+                .alert.alert-danger(role='alert')
+                  span.glyphicon.glyphicon-exclamation-sign(area-hidden="true")
+                  | #{invalidLogin}
+              form(method='post', action='/login')
+                .form-group
+                  label(for='username') Username
+                  input.form-control(type='text', name='username', id='username')
+                .form-group
+                  label(for='password') Password
+                  input.form-control(type='password', name='password', id='password')
+                input.form-control.btn.btn-primary(type='submit', value='Verify')
+          - else
+            .alert.alert-success(role='alert') Logged in.
+  .row
+    .col-md-4
+      h2 Getting started
+      p Express gives you a powerful, patterns-based way to build dynamic websites that enables a clean separation of concerns and gives you full control over markup for enjoyable, agile development.
+      p
+        a.btn.btn-default(href='http://expressjs.com/') Learn more &raquo;
+    .col-md-4
+      h2 Get more libraries
+      p Node Packaged Modules is a repository of software for Node.js.
+      p
+        a.btn.btn-default(href='https://www.npmjs.org/') Learn more &raquo;
+    .col-md-4
+      h2 Microsoft Azure
+      p You can easily publish to Microsoft Azure using Node.js Tools for Visual Studio. Find out how you can host your application using a free trial today.
+      p
+        a.btn.btn-default(href='http://azure.microsoft.com') Learn more &raquo;

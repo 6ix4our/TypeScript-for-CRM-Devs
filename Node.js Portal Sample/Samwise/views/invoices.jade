@@ -1,0 +1,13 @@
+﻿extends layout
+
+block content
+  h2 #{title}
+
+  table.table-striped
+    thead
+      tr 
+        th Title
+    tbody
+      each invoice in dataSet
+        tr
+          td #{invoice.title}
